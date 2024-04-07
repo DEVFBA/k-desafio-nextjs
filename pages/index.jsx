@@ -83,19 +83,7 @@ export default function Home() {
           </form>
         </div>
         <div className="flex gap-2">
-          {/* <Link
-            href="/login"
-            className="text-center flex px-5 py-1 hover:border rounded-md hover:underline-offset-1 hover:bg-indigo-400 hover:text-[#3b49df]"
-          >
-            Log in
-          </Link> */}
           {!localStorage.token && showLoginButton()}
-          {/* <Link
-            href="/"
-            className="text-center bg-white border rounded-md flex px-5 py-1 text-[#3b49df] font-medium hover:text-white hover:bg-[#3b49df] hover:underline-offset-4"
-          >
-            Create Account
-          </Link> */}
           {!localStorage.token && showCreateAccountButton()}
           {localStorage.token && showSignOutButton()}
         </div>
@@ -111,18 +99,9 @@ export default function Home() {
                 We're a place where coders share, stay up-to-date and grow their
                 careers.
               </p>
-              <Link
-                href="/"
-                className="text-center bg-white border rounded-md flex px-5 py-1 text-[#3b49df] font-medium hover:text-white hover:bg-[#3b49df] hover:underline-offset-4"
-              >
-                Create Account
-              </Link>
-              <Link
-                href="/login"
-                className="text-center flex px-5 py-1 hover:border rounded-md hover:underline-offset-1 hover:bg-indigo-400 text-[#3b49df]"
-              >
-                Log in
-              </Link>
+              {!localStorage.token && showLoginButton()}
+              {!localStorage.token && showCreateAccountButton()}
+              {localStorage.token && showSignOutButton()}
             </div>
             <div className="p-3 flex flex-col gap-3">
               <div className="flex flex-row">
