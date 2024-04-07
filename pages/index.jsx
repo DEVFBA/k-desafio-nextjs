@@ -96,8 +96,8 @@ export default function Home() {
                 DEV Community is a community of 1,388,591 amazing developers
               </h3>
               <p className="text-base">
-                We're a place where coders share, stay up-to-date and grow their
-                careers.
+                We&apos;re a place where coders share, stay up-to-date and grow
+                their careers.
               </p>
               {!localStorage.token && showLoginButton()}
               {!localStorage.token && showCreateAccountButton()}
