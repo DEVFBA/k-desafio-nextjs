@@ -2,12 +2,14 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import CardsContainer from "../components/CardsContainer";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const signOut = (event) => {
   event.preventDefault;
   localStorage.removeItem("token");
+  setToken(null);
 };
 
 const showLoginButton = () => {
@@ -51,6 +53,11 @@ const showSignOutButton = () => {
 };
 
 export default function Home() {
+  const [token, setToken] = useState(null);
+  useEffect(() => {
+    setToken(localStorage.token);
+  }, []);
+
   return (
     <main className="bg-zinc-100 flex flex-col gap-5 min-h-screen h-full box-content text-[#575757]">
       <section
@@ -83,9 +90,9 @@ export default function Home() {
           </form>
         </div>
         <div className="flex gap-2">
-          {!localStorage.token && showLoginButton()}
-          {!localStorage.token && showCreateAccountButton()}
-          {localStorage.token && showSignOutButton()}
+          {!token && showLoginButton()}
+          {!token && showCreateAccountButton()}
+          {token && showSignOutButton()}
         </div>
       </section>
       <section className="flex flex-row w-full min-h-screen gap-5 justify-center px-40">
@@ -99,9 +106,9 @@ export default function Home() {
                 We&apos;re a place where coders share, stay up-to-date and grow
                 their careers.
               </p>
-              {!localStorage.token && showLoginButton()}
-              {!localStorage.token && showCreateAccountButton()}
-              {localStorage.token && showSignOutButton()}
+              {!token && showLoginButton()}
+              {!token && showCreateAccountButton()}
+              {token && showSignOutButton()}
             </div>
             <div className="p-3 flex flex-col gap-3">
               <div className="flex flex-row">
