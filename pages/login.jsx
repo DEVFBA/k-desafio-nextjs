@@ -45,19 +45,19 @@ const LoginPage = () => {
       <div className="text-[#B91C1C] bg-red-100 p-2">
         <strong>Unable to login</strong>
         <br />
-        If you haven't created an account, we recommend signing up with social
-        authentication
+        If you haven&apos;t created an account, we recommend signing up with
+        social authentication
         <br />
-        below. If you havent' received you confirmation email yet,
-        <a href="/" className="text-[#3B49DF]">
+        below. If you haven&apos;t received you confirmation email yet,
+        <Link href="/" className="text-[#3B49DF]">
           {" "}
           click here
-        </a>{" "}
+        </Link>{" "}
         to resend it.
         <br />
-        <a href="/" className="text-[#3B49DF]">
+        <Link href="/" className="text-[#3B49DF]">
           Contact us
-        </a>{" "}
+        </Link>{" "}
         if you continue having trouble.
       </div>
     );
