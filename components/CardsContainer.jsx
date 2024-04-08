@@ -52,7 +52,7 @@ const CardsContainer = () => {
               title={post.title}
               user={`${post.user?.first_name} ${post.user?.last_name}`}
               date={post.updatedAt}
-              userPic={post.user.profile_picture}
+              userPic={post.user?.profile_picture}
               content={`${post.content.substring(0, 100)}...`}
               tags={post.tags}
               cover={post.cover}
