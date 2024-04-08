@@ -29,7 +29,7 @@ const showCreateAccountButton = () => {
   return (
     <>
       <Link
-        href="/"
+        href="/newUser"
         className="text-center bg-white border rounded-md flex px-5 py-1 text-[#3b49df] font-medium hover:text-white hover:bg-[#3b49df] hover:underline-offset-4"
       >
         Create Account
@@ -52,7 +52,14 @@ const showSignOutButton = () => {
   );
 };
 
-export default function Home() {
+const sortPostByDate = (posts) => {
+  posts.sort((a, b) => {
+    return new Date(b.updatedAt) - new Date(a.updatedAt);
+  });
+  return posts;
+};
+
+export default function Home(props) {
   const [token, setToken] = useState(null);
   useEffect(() => {
     setToken(localStorage.token);
@@ -432,7 +439,7 @@ export default function Home() {
           <div></div>
         </div>
         <div className="grow">
-          <CardsContainer />
+          <CardsContainer posts={props.posts} />
         </div>
         <div className="flex flex-col grow-0 gap-3 max-w-48">
           <div className="flex flex-col bg-white border rounded-md gap-3 p-3">
@@ -485,4 +492,19 @@ export default function Home() {
       </section>
     </main>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const response = await fetch(
+    "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post"
+  );
+  const posts = await response.json();
+
+  sortPostByDate(posts.data);
+
+  return {
+    props: {
+      posts: posts.data,
+    },
+  };
 }

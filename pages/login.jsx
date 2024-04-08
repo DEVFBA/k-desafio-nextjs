@@ -29,8 +29,6 @@ const LoginPage = () => {
 
     const json = await response.json();
 
-    console.log(json);
-
     if (json.data?.token) {
       localStorage.setItem("token", json.data.token);
       router.push("/");

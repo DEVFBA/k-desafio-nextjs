@@ -2,25 +2,18 @@ import { useEffect, useState } from "react";
 import MainCard from "./MainCard";
 import SecondaryCard from "./SecondaryCard";
 
-const CardsContainer = () => {
-  const [posts, setPosts] = useState([]);
+const CardsContainer = (props) => {
+  // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    fetch("https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post")
-      .then((res) => res.json())
-      .then((json) => {
-        const sortedPosts = sortPostByDate(json.data);
-        setPosts(sortedPosts);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  const sortPostByDate = (posts) => {
-    posts.sort((a, b) => {
-      return new Date(b.updatedAt) - new Date(a.updatedAt);
-    });
-    return posts;
-  };
+  // useEffect(() => {
+  //   fetch("https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       const sortedPosts = sortPostByDate(json.data);
+  //       setPosts(sortedPosts);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, []);
 
   return (
     <section className="p-1 gap-10 p-10 text-black">
@@ -30,7 +23,7 @@ const CardsContainer = () => {
         <li>Top</li>
       </ul>
       <section className="flex flex-col gap-2">
-        {posts.map((post, index) => {
+        {props.posts.map((post, index) => {
           if (index >= 0 && index <= 2) {
             return (
               <MainCard
@@ -52,7 +45,7 @@ const CardsContainer = () => {
               title={post.title}
               user={`${post.user?.first_name} ${post.user?.last_name}`}
               date={post.updatedAt}
-              userPic={post.user.profile_picture}
+              userPic={post.user?.profile_picture}
               content={`${post.content.substring(0, 100)}...`}
               tags={post.tags}
               cover={post.cover}
