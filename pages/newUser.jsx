@@ -13,8 +13,6 @@ const CreateUserPage = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    console.log("Entra: ", data);
-
     const response = await fetch(
       "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/user",
       {
@@ -111,7 +109,7 @@ const CreateUserPage = () => {
               required: { value: true, message: "Password is required" },
             })}
           />
-          <label htmlFor="passwordConfirmation">
+          {/* <label htmlFor="passwordConfirmation">
             Password Confirmation<span className="text-red-700">*</span>
           </label>
           <input
@@ -126,7 +124,7 @@ const CreateUserPage = () => {
                 message: "Password Confirmation is required",
               },
             })}
-          />
+          /> */}
           <button className="border p-1 bg-[#3B49DF] text-white font-medium">
             Sign up
           </button>
