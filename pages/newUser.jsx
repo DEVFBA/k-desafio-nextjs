@@ -13,8 +13,6 @@ const CreateUserPage = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    console.log("Entra: ", data);
-
     const response = await fetch(
       "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/user",
       {
@@ -46,9 +44,12 @@ const CreateUserPage = () => {
 
   return (
     <>
-      <section className="bg-zinc-100 h-screen w-full flex flex-row justify-center">
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
-          <h2>Create you account</h2>
+      <section className="bg-zinc-100 h-screen w-full flex flex-row justify-center py-10 text-lg">
+        <form
+          className="flex flex-col gap-5 w-1/5"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <h2 className="text-lg font-bold">Create you account</h2>
           {/* <label htmlFor="profilePicture">Profile Image</label>
           <input
             type="file"
@@ -57,9 +58,10 @@ const CreateUserPage = () => {
             {...register("profilePicture")}
           /> */}
           <label htmlFor="firstName">
-            First Name <span>*</span>
+            First Name <span className="text-red-700">*</span>
           </label>
           <input
+            className="border rounded-md p-1"
             type="text"
             name="firstName"
             id="firstName"
@@ -69,9 +71,10 @@ const CreateUserPage = () => {
             })}
           />
           <label htmlFor="lastName">
-            Last Name <span>*</span>
+            Last Name <span className="text-red-700">*</span>
           </label>
           <input
+            className="border rounded-md p-1"
             type="text"
             name="lastName"
             id="lastName"
@@ -81,9 +84,10 @@ const CreateUserPage = () => {
             })}
           />
           <label htmlFor="email">
-            Email <span>*</span>
+            Email <span className="text-red-700">*</span>
           </label>
           <input
+            className="border rounded-md p-1"
             type="email"
             name="email"
             id="email"
@@ -93,9 +97,10 @@ const CreateUserPage = () => {
             })}
           />
           <label htmlFor="password">
-            Password <span>*</span>
+            Password <span className="text-red-700">*</span>
           </label>
           <input
+            className="border rounded-md p-1"
             type="password"
             name="password"
             id="password"
@@ -104,10 +109,11 @@ const CreateUserPage = () => {
               required: { value: true, message: "Password is required" },
             })}
           />
-          <label htmlFor="passwordConfirmation">
-            Password Confirmation<span>*</span>
+          {/* <label htmlFor="passwordConfirmation">
+            Password Confirmation<span className="text-red-700">*</span>
           </label>
           <input
+            className="border rounded-md p-1"
             type="password"
             name="passwordConfirmation"
             id="passwordConfirmation"
@@ -118,8 +124,10 @@ const CreateUserPage = () => {
                 message: "Password Confirmation is required",
               },
             })}
-          />
-          <button className="border">Sign up</button>
+          /> */}
+          <button className="border p-1 bg-[#3B49DF] text-white font-medium">
+            Sign up
+          </button>
         </form>
       </section>
     </>
