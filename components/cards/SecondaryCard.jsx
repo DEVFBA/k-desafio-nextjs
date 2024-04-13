@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const SecondaryCard = (props) => {
   return (
     <article className="bg-white border rounded-md flex flex-col justify-center align-middle gap-5 px-5 py-7">
@@ -16,7 +18,9 @@ const SecondaryCard = (props) => {
       </div>
       <div className="px-14 flex flex-col gap-5">
         <div>
-          <h3 className="text-xl font-bold">{props.title}</h3>
+          <Link href={`/posts/${props.postId}`}>
+            <h3 className="text-xl font-bold">{props.title}</h3>
+          </Link>
         </div>
         <div>{props.tags}</div>
         <div className="flex flex-row gap-6">
