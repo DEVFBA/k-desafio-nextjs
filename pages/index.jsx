@@ -1,10 +1,13 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+// import Image from "next/image";
+// import { Inter } from "next/font/google";
 import Link from "next/link";
-import CardsContainer from "../components/CardsContainer";
+
+import CardsContainer from "../components/cards/CardsContainer";
+import NavBar from "../components/NavBar";
+
 import { useEffect, useState } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 const signOut = (event) => {
   event.preventDefault;
@@ -61,47 +64,14 @@ const sortPostByDate = (posts) => {
 
 export default function Home(props) {
   const [token, setToken] = useState(null);
+
   useEffect(() => {
     setToken(localStorage.token);
   }, []);
 
   return (
     <main className="bg-zinc-100 flex flex-col gap-5 min-h-screen h-full box-content text-[#575757]">
-      <section
-        id="navbar"
-        className="bg-white px-40 flex flex-rowg gap-2 justify-between p-2"
-      >
-        <div className="flex flex-row gap-3">
-          <div className="">
-            <img
-              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-              alt="DEV Logo"
-              className="h-10 w-[50px]"
-            />
-          </div>
-          <form className="border rounded-md h-10 w-96 flex justify-between align-middle gap-2 p-1">
-            <input type="text" placeholder="Search..." className="grow" />
-            <button className="grow-0 px-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                class="crayons-icon c-btn__icon"
-                focusable="false"
-              >
-                <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
-              </svg>
-            </button>
-          </form>
-        </div>
-        <div className="flex gap-2">
-          {!token && showLoginButton()}
-          {!token && showCreateAccountButton()}
-          {token && showSignOutButton()}
-        </div>
-      </section>
+      <NavBar token={token}></NavBar>
       <section className="flex flex-row w-full min-h-screen gap-5 justify-center px-40">
         <div className="flex flex-col grow-0 max-w-48">
           <div className="flex flex-col gap-3 ">
