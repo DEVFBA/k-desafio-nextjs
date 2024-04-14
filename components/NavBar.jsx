@@ -24,7 +24,7 @@ const showCreateAccountButton = () => {
   return (
     <>
       <Link
-        href="/newUser"
+        href="/new-user"
         className="text-center bg-white border rounded-md flex px-5 py-1 text-[#3b49df] font-medium hover:text-white hover:bg-[#3b49df] hover:underline-offset-4"
       >
         Create Account
@@ -42,6 +42,19 @@ const showSignOutButton = () => {
         onClick={signOut}
       >
         Sign Out
+      </Link>
+    </>
+  );
+};
+
+const showCreatePostButton = () => {
+  return (
+    <>
+      <Link
+        href="/create-post"
+        className="text-center bg-white border rounded-md flex px-5 py-1 text-[#3b49df] font-medium hover:text-white hover:bg-[#3b49df] hover:underline-offset-4"
+      >
+        Create Post
       </Link>
     </>
   );
@@ -82,6 +95,7 @@ const NavBar = (props) => {
         <div className="flex gap-2">
           {!props.token && showLoginButton()}
           {!props.token && showCreateAccountButton()}
+          {props.token && showCreatePostButton()}
           {props.token && showSignOutButton()}
         </div>
       </section>
