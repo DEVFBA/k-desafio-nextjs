@@ -32,7 +32,7 @@ const showCreateAccountButton = () => {
   return (
     <>
       <Link
-        href="/newUser"
+        href="/new-user"
         className="text-center bg-white border rounded-md flex px-5 py-1 text-[#3b49df] font-medium hover:text-white hover:bg-[#3b49df] hover:underline-offset-4"
       >
         Create Account
