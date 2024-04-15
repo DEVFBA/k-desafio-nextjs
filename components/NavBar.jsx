@@ -69,11 +69,13 @@ const NavBar = (props) => {
       >
         <div className="flex flex-row gap-3">
           <div className="">
-            <img
-              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-              alt="DEV Logo"
-              className="h-10 w-[50px]"
-            />
+            <Link href="/">
+              <img
+                src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+                alt="DEV Logo"
+                className="h-10 w-[50px]"
+              />
+            </Link>
           </div>
           <form className="border rounded-md h-10 w-96 flex justify-between align-middle gap-2 p-1">
             <input type="text" placeholder="Search..." className="grow" />
