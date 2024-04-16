@@ -35,11 +35,8 @@ const CreateUserPage = () => {
 
     const json = await response.json();
 
-    console.log(json);
-
     router.push("/login");
     setError("root", { message: "Error: User not created" });
-    console.log("Errors: ", errors);
   };
 
   return (

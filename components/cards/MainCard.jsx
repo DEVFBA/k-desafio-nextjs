@@ -1,23 +1,21 @@
+import Link from "next/link";
+import CardImage from "./CardImage";
+import AuthorDateInfo from "./AuthorDateInfo";
+
 const MainCard = (props) => {
   return (
     <article className="bg-white border rounded-md flex flex-col justify-center align-middle gap-5 px-5 py-7 ">
-      <img src={props.cover} alt="" className="w-full max-h-80" />
-      <div className="flex flex-row gap-3">
-        <img
-          src={props.userPic}
-          alt="ProfilePic"
-          className="border rounded-full size-8"
-        />
-        <div>
-          <p className="text-sm font-medium">
-            {props.user ? props.user : "User Not Found"}
-          </p>
-          <p className="text-xs">{props.date}</p>
-        </div>
-      </div>
+      <CardImage cover={props.cover}></CardImage>
+      <AuthorDateInfo
+        userPic={props.userPic}
+        date={props.date}
+        user={props.user}
+      ></AuthorDateInfo>
       <div className="px-14 flex flex-col gap-5">
         <div>
-          <h3 className="text-xl font-bold">{props.title}</h3>
+          <Link href={`/posts/${props.postId}`}>
+            <h3 className="text-xl font-bold">{props.title}</h3>
+          </Link>
           <p className="text-base">{props.content}</p>
         </div>
         <div>{props.tags}</div>

@@ -3,18 +3,6 @@ import MainCard from "./MainCard";
 import SecondaryCard from "./SecondaryCard";
 
 const CardsContainer = (props) => {
-  // const [posts, setPosts] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post")
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       const sortedPosts = sortPostByDate(json.data);
-  //       setPosts(sortedPosts);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
-
   return (
     <section className="p-1 gap-10 p-10 text-black">
       <ul className="flex flex-row gap-10 text-lg p-2">
@@ -27,7 +15,8 @@ const CardsContainer = (props) => {
           if (index >= 0 && index <= 2) {
             return (
               <MainCard
-                key={`key-${post._id}`}
+                key={`key-${index}`}
+                postId={post._id}
                 title={post.title}
                 user={`${post.user?.first_name} ${post.user?.last_name}`}
                 date={post.updatedAt}
@@ -41,7 +30,8 @@ const CardsContainer = (props) => {
 
           return (
             <SecondaryCard
-              key={`key-${post._id}`}
+              key={`key-${index}`}
+              postId={post._id}
               title={post.title}
               user={`${post.user?.first_name} ${post.user?.last_name}`}
               date={post.updatedAt}
@@ -56,20 +46,5 @@ const CardsContainer = (props) => {
     </section>
   );
 };
-
-// export async function getServerSideProps(ctx) {
-//   const response = await fetch(
-//     "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post"
-//   );
-//   const posts = await response.json();
-
-//   console.log(`getServerSideProps SSR`, posts);
-
-//   return {
-//     props: {
-//       posts: data,
-//     },
-//   };
-// }
 
 export default CardsContainer;
