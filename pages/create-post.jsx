@@ -54,6 +54,7 @@ const CreatePostPage = () => {
             {/* <input type="file" id="postPicture" /> */}
             <input
               type="text"
+              className="text-4xl font-bold"
               placeholder="New post title here"
               id="postTitle"
               name="postTitle"
