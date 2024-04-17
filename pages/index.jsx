@@ -465,9 +465,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const response = await fetch(
-    "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post"
-  );
+  const response = await fetch("https://k-challenge.devfba.mx/post");
   const posts = await response.json();
 
   sortPostByDate(posts.data);
