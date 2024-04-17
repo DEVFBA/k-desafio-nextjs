@@ -1,4 +1,4 @@
-Este es un proyecto desafío [Next.js](https://nextjs.org/) para Kodemia, en el que se pretende demostrar el conocimiento adquirido en React, Next y Tailwind durante el correspondiente módulo. Es un clon de la página dev.to conectado a un backend desarrollado en el módulo anterior [https://kodemia-backend-challenge-d515b23a922f.herokuapp.com]
+Este es un proyecto desafío [Next.js](https://nextjs.org/) para Kodemia, en el que se pretende demostrar el conocimiento adquirido en React, Next y Tailwind durante el correspondiente módulo. Es un clon de la página dev.to conectado a un backend desarrollado en el módulo anterior [https://k-challenge.devfba.mx]
 
 ## Instalación
 
@@ -20,7 +20,7 @@ Paara ejecutar de forma local:
 
 ## Backend
 
-1. La API utilizada fue desplegada en Heroku [https://kodemia-backend-challenge-d515b23a922f.herokuapp.com]
+1. La API utilizada fue desplegada en AWS [https://k-challenge.devfba.mx]
 2. El repo de la API es [https://github.com/DEVFBA/k-desafio-node-backend-2]
 
 ## Despliegue

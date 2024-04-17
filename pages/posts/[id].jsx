@@ -15,9 +15,7 @@ const PostDetail = () => {
   useEffect(() => {
     setToken(localStorage.token);
 
-    fetch(
-      `https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post/${router.query.id}`
-    )
+    fetch(`https://k-challenge.devfba.mx/post/${router.query.id}`)
       .then((response) => response.json())
       .then((json) => setPost(json.data))
       .catch((error) => console.log(error));

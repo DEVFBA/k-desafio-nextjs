@@ -13,25 +13,22 @@ const CreateUserPage = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    const response = await fetch(
-      "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/user",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          first_name: data.firstName,
-          email: data.email,
-          password: data.password,
-          gender: "Male",
-          phone: "000000000",
-          last_name: data.lastName,
-          profile_picture:
-            "https://res.cloudinary.com/dxifbzhn2/image/upload/v1712516460/Perfil_Y…",
-        }),
-      }
-    );
+    const response = await fetch("https://k-challenge.devfba.mx/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: data.firstName,
+        email: data.email,
+        password: data.password,
+        gender: "Male",
+        phone: "000000000",
+        last_name: data.lastName,
+        profile_picture:
+          "https://res.cloudinary.com/dxifbzhn2/image/upload/v1712516460/Perfil_Y…",
+      }),
+    });
 
     const json = await response.json();
 
