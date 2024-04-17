@@ -13,19 +13,16 @@ const LoginPage = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    const response = await fetch(
-      "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/user/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password,
-        }),
-      }
-    );
+    const response = await fetch("https://k-challenge.devfba.mx/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
+    });
 
     const json = await response.json();
 

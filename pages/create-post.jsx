@@ -15,23 +15,20 @@ const CreatePostPage = () => {
   const onSubmit = async (data) => {
     const token = localStorage.token;
 
-    const response = await fetch(
-      "https://kodemia-backend-challenge-d515b23a922f.herokuapp.com/post",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          title: data.postTitle,
-          content: data.postContent,
-          tags: data.postTags,
-          cover:
-            "https://res.cloudinary.com/practicaldev/image/fetch/s--CbZjKhMp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/f9bp06ymy5cdurg16r5w.jpeg",
-        }),
-      }
-    );
+    const response = await fetch("https://k-challenge.devfba.mx/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title: data.postTitle,
+        content: data.postContent,
+        tags: data.postTags,
+        cover:
+          "https://res.cloudinary.com/practicaldev/image/fetch/s--CbZjKhMp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/f9bp06ymy5cdurg16r5w.jpeg",
+      }),
+    });
 
     const json = await response.json();
 
